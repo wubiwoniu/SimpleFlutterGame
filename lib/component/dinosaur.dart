@@ -126,7 +126,7 @@ class Dinosaur extends PositionComponent
 
   void setDie() {
     if (status == Status.down) {
-      x = x + (DinoDownConfig.w - DinoDieConfig.w);
+      x += (DinoDownConfig.w - DinoDieConfig.w);
       status = Status.die;
     } else {
       status = Status.die;

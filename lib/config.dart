@@ -64,3 +64,12 @@ class CactusConfig {
     CactusConfig._internal(w: 200, h: 100, y: 2, x: 752),
   ];
 }
+
+class ScoreConfig {
+  static double w = 242 / 12;
+  static double h = 21;
+  static double y = 2.0;
+  static double x = 952;
+}
+
+class BirdConfig {}
