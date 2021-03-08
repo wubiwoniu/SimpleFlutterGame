@@ -15,6 +15,7 @@ import 'package:dinosaur/button/down-button.dart';
 import 'package:dinosaur/obstacle/cactus.dart';
 import 'package:dinosaur/controller/check-hit.dart';
 import 'package:dinosaur/component/now-score.dart';
+import 'package:dinosaur/component/best-score.dart';
 
 class DinosaurRun extends BaseGame with HasWidgetsOverlay, TapDetector {
   Size screenSize;
@@ -27,6 +28,7 @@ class DinosaurRun extends BaseGame with HasWidgetsOverlay, TapDetector {
   JumpButton jumpbutton;
   DownButton downbutton;
   NowScore nowScore;
+  BestScore bestScore;
 
   HitCheckHelper hitcheck;
 
@@ -48,6 +50,7 @@ class DinosaurRun extends BaseGame with HasWidgetsOverlay, TapDetector {
     dashSpeed = 26;
     isplay = true;
     nowScore = NowScore(this, img);
+    bestScore = BestScore(img);
     bg = BackGround(this);
     ground = Ground(this, img);
     clouds = Clouds(this, img);
@@ -62,6 +65,7 @@ class DinosaurRun extends BaseGame with HasWidgetsOverlay, TapDetector {
     add(cactus);
     add(dinosaur);
     add(nowScore);
+    add(bestScore);
     addWidgetOverlay(
         'JumpButton',
         jumpbutton.setJumpButton(
@@ -86,6 +90,7 @@ class DinosaurRun extends BaseGame with HasWidgetsOverlay, TapDetector {
       dinosaur.update(t);
       cactus.update(t);
       nowScore.update(t);
+      bestScore.update(t);
       if (await hitcheck.checkHit(dinosaur.nowStatus, cactus)) {
         isplay = false;
         dinosaur.setDie();

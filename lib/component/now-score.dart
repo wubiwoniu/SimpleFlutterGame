@@ -19,7 +19,7 @@ class NowScore extends PositionComponent
   NowScore(this.game, this.img) {
     score = 0;
     x = 0;
-    y = 5;
+    y = 5 + ScoreConfig.h;
     scoreSplit = List<int>();
   }
 
